@@ -2,6 +2,11 @@
 
 const PORT = process.env.PORT || 3000;
 
+var AWS = require('aws-sdk');
+var s3 = new AWS.S3();
+var fs = require('fs');
+
+
 var express = require('express');
 var router = express.Router();
 var app = express();
@@ -17,6 +22,32 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', require('./routes/index'));
+
+
+
+
+fs.readFile(path.join(__dirname, './zoolander.jpg'), (err, data) => {
+  console.log('err: ', err);
+  console.log('data: ', data);
+
+  let params = {
+    Bucket: 'toby-s3-test',
+    Key: 'zoolander.jpg',
+    ACL: 'public-read',
+    Body: data
+  };
+
+  s3.putObject(params, (err, result) => {
+    console.log('err: ', err);
+    console.log('result: ', result);
+  });
+});
+
+
+
+
+
+
 
 io.on('connection', (socket) => {
   console.log('Client connected');
