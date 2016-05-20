@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('frontEnd_template', [ 'ui.bootstrap', 'ui.router', 'oitozero.ngSweetAlert', 'btford.socket-io' ]);
+var app = angular.module('PhotoAlbum', [ 'ui.bootstrap', 'ui.router', 'oitozero.ngSweetAlert', 'btford.socket-io' ]);
 
 app.config(function($stateProvider, $urlRouterProvider){
 
@@ -25,6 +25,16 @@ app.config(function($stateProvider, $urlRouterProvider){
     url           : '/templateForgot' ,
     templateUrl   : 'html/templateForgot.html' ,
     controller    : 'templateForgotCtrl'
+  })
+  .state('albums', {
+    url           : '/albums' ,
+    templateUrl   : 'html/albums.html' ,
+    controller    : 'albumsCtrl'
+  })
+  .state('images', {
+    url           : '/images' ,
+    templateUrl   : 'html/images.html' ,
+    controller    : 'imagesCtrl'
   })
   // .state('< name >', {
   //   url           : '< / >' ,
