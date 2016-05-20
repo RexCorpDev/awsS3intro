@@ -47,16 +47,12 @@ app.controller('albumsCtrl', function($scope, $state, template_service){
 
 })
 
-app.controller('imagesCtrl', function($scope, $state, FileUpload){
+app.controller('imagesCtrl', function($scope, $state, template_service){
   console.log('imagesCtrl');
 
-  $scope.uploadImage = image => {
-    var fileObj = image;
-    console.log('ngfile: ', fileObj);
-    FileUpload.uploadFileToUrl(fileObj);
-  };
+  
 
-});
+})
 
 
 // app.controller('betaCtrl', function($scope, $state, <SERVICE NAME>){

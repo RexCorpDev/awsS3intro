@@ -28,67 +28,68 @@
     <script src="/bower_components/angular-socket-io/socket.min.js" charset="utf-8"></script>
     <script src="/bower_components/socket.io-client/socket.io.js" charset="utf-8"></script>
     <script src="/bower_components/ng-file-upload/ng-file-upload.min.js" charset="utf-8"></script>
-    <script src="public/bower_components/ng-file-upload/ng-file-upload-shim.min.js" charset="utf-8"></script>
+    <script src="/bower_components/ng-file-upload/ng-file-upload-shim.min.js" charset="utf-8"></script>
 
-    <!-- angular UI-Bootstrap -->
-    <script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js" charset="utf-8"></script>
+        <!-- angular UI-Bootstrap -->
+        <script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js" charset="utf-8"></script>
 
-    <!-- Jquery (for Bootstrap) -->
-    <script src="/bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
+        <!-- Jquery (for Bootstrap) -->
+        <script src="/bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
 
-    <!-- SweetAlert -->
-    <script src="/bower_components/ngSweetAlert/SweetAlert.min.js"></script>
-    <script src="/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+        <!-- SweetAlert -->
+        <script src="/bower_components/ngSweetAlert/SweetAlert.min.js"></script>
+        <script src="/bower_components/sweetalert/dist/sweetalert.min.js"></script>
 
-    <script src="" charset="utf-8"></script>
+        <script src="" charset="utf-8"></script>
 
-    <!-- Modules, Controllers, Services -->
-    <script src="/js/module.js" charset="utf-8"></script>
-    <script src="/js/services.js" charset="utf-8"></script>
-    <script src="/js/controllers.js" charset="utf-8"></script>
-    <script src="/js/factories.js" charset="utf-8"></script>
-  </span>
+        <!-- Modules, Controllers, Services -->
+        <script src="/js/module.js" charset="utf-8"></script>
+        <script src="/js/services.js" charset="utf-8"></script>
+        <script src="/js/controllers.js" charset="utf-8"></script>
+        <script src="/js/factories.js" charset="utf-8"></script>
+      </span>
 
-</head>
+    </head>
 
-<body ng-app="frontEnd_template">
+    <body ng-app="PhotoAlbum">
 
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">TOGGLE NAV</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" ui-sref="home">Home</a>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">TOGGLE NAV</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ui-sref="home">Home</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+
+              <li><a ui-sref="templateLogin">LOGIN</a></li>
+              <li><a ui-sref="templateRegister">REGISTER</a></li>
+              <li><a ui-sref="albums">ALBUMS</a></li>
+              <li><a ui-sref="images">IMAGES</a></li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="template-header text-center">
+        <i></i>
+        <br>
+        <!-- <h3 class="text-center" >Photo Album App</h3> -->
       </div>
-      <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-
-          <li><a ui-sref=" templateLogin ">TEMPLATE LOGIN #1</a></li>
-          <li><a ui-sref=" templateRegister ">TEMPLATE REGISTER #2</a></li>
-
-        </ul>
+      <div class="container">
+        <ui-view>
+            <h1 class="text-center jumbotron">
+              Photo Album App
+            </h1>
+          <!-- TEMPLATES -->
+        </ui-view>
       </div>
-    </div>
-  </nav>
 
-  <div class="template-header text-center">
-    <i style="color : red" class="fa fa-cog fa-spin fa-5x fa-fw margin-bottom"></i>
-    <br>
-    <h3 class="text-center" style="color : Red ">Front End Template</h3>
-  </div>
-  <hr>
-  <div class="container">
-    <ui-view>
-        <h1 style="color : red" class="text-center jumbotron">
-          " / "
-        </h1>
-      <!-- TEMPLATES -->
-    </ui-view>
-  </div>
-
-</body>
-</html>
+    </body>
+    </html>
