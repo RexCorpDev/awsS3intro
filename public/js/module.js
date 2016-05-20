@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('PhotoAlbum', [ 'ui.bootstrap', 'ui.router', 'oitozero.ngSweetAlert', 'btford.socket-io' ]);
+var app = angular.module('PhotoAlbum', [ 'ui.bootstrap', 'ui.router', 'oitozero.ngSweetAlert', 'btford.socket-io', 'ngFileUpload' ]);
 
 app.config(function($stateProvider, $urlRouterProvider){
 
