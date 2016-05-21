@@ -2,6 +2,6 @@
 
 var app = angular.module('PhotoAlbum');
 
-app.service('template_service', function(){
+app.service('FileUpload', function(){
 
 });

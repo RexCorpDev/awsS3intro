@@ -43,29 +43,40 @@ app.controller('templateForgotCtrl', function($scope, $state, template_service){
 app.controller('albumsCtrl', function($scope, $state, template_service){
   console.log('albumsCtrl');
 
-  //$scope.<ARRAY> = [];
 
 })
-app.controller('imagesCtrl', function($scope, $state, FileUpload){
+
+app.controller('imagesCtrl', function($scope, $state, Upload){
   console.log('imagesCtrl');
 
-  // This was my attempt
-  // $scope.uploadImage = image => {
-  //   var fileObj = image;
-  //   console.log('ngfile: ', fileObj);
-  //   FileUpload.uploadFileToUrl(fileObj);
-  // };
+  $scope.uploadImage = image => {
+    console.log('Submit: ', image);
+    if(!image){
+      return Upload.upload($scope.file);
+    } else {
+      return Upload.upload(image);
+    };
 
-  Upload.upload({
-    url: '/api/images',
-    data: { newFile: $scope.file }
-  })
-  .then(res => {
-    console.log('res: ', res);
-  })
-  .catch(err => {
-    console.log('err: ', err);
-  })
+    Upload.upload({
+      url: '/api/images/upload',
+      data: { file : image }
+    })
+    .then(res => {
+      console.log('res: ', res);
+    })
+    .catch(err => {
+      console.log('err: ', err);
+    });
+
+  };
+
+
+  $scope.cancel = () => {
+    console.log('cancel');
+    $scope.image = ""
+  };
+
+
 });
 
 

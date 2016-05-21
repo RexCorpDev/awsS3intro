@@ -22,15 +22,17 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.get('/', require('./routes/index'));
+app.get('/api', require('./routes/api'));
 
 var bucketName = 'toby-s3-test';
 var fileName = 'zoolander.jpg';
 var urlBase = 'https://s3.amazonaws.com/'
 
 fs.readFile(path.join(__dirname, './zoolander.jpg'), (err, data) => {
-  console.log('err: ', err);
-  console.log('data: ', data);
+  console.log('fs err: ', err);
+  console.log('fs data: ', data);
 
   var ext = fileName.split('.').pop();
   var key = uuid() + `.${ext}`;
@@ -46,9 +48,9 @@ fs.readFile(path.join(__dirname, './zoolander.jpg'), (err, data) => {
   s3.putObject(params, (err, result) => {
 
     var imgUrl = `${urlBase}${bucketName}/${key}`
-    console.log('imgUrl: ', imgUrl);
-    console.log('err: ', err);
-    console.log('result: ', result);
+    console.log('aws imgUrl: ', imgUrl);
+    console.log('aws err: ', err);
+    console.log('aws result: ', result);
   });
 });
 
