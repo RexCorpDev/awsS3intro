@@ -46,13 +46,27 @@ app.controller('albumsCtrl', function($scope, $state, template_service){
   //$scope.<ARRAY> = [];
 
 })
-
-app.controller('imagesCtrl', function($scope, $state, template_service){
+app.controller('imagesCtrl', function($scope, $state, FileUpload){
   console.log('imagesCtrl');
 
-  
+  // This was my attempt
+  // $scope.uploadImage = image => {
+  //   var fileObj = image;
+  //   console.log('ngfile: ', fileObj);
+  //   FileUpload.uploadFileToUrl(fileObj);
+  // };
 
-})
+  Upload.upload({
+    url: '/api/images',
+    data: { newFile: $scope.file }
+  })
+  .then(res => {
+    console.log('res: ', res);
+  })
+  .catch(err => {
+    console.log('err: ', err);
+  })
+});
 
 
 // app.controller('betaCtrl', function($scope, $state, <SERVICE NAME>){
