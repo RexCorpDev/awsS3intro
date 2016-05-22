@@ -1,0 +1,31 @@
+<div class="container-fluid" ng-controller='uploadCtrl'>
+  <div class="form-group">
+    <div class="col-xs-6 col-xs-offset-3">
+      <h1>S3</h1>
+      <div class="">
+        <h4>Upload</h4>
+
+        <form ng-submit='uploadFile()'>
+          <fieldset class="form-group">
+            <button ng-model='uploadMe' type="file" name='newFile'
+            ngf-select   ngf-pattern="'*'" ngf-accept="'*'" ngf-max-size="100MB">Choose File</button>
+          </fieldset>
+          <button class="btn btn-primary">Upload</button>
+        </form>
+        <hr>
+        <h4>Download</h4>
+
+        <form ng-submit='retrieveFile()'>
+          <input ng-model='fileToRetrieve.key' class='form-control' type='text' placeholder="Type file name stored on Aws">
+          <br>
+          <button class='btn btn-lg btn-primary'>Get</button>
+        </form>
+        <hr>
+        <h4>Download Results</h4>
+        <pre>{{ fileReceived }}</pre>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
