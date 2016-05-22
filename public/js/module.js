@@ -26,16 +26,16 @@ app.config(function($stateProvider, $urlRouterProvider){
     templateUrl   : 'html/templateForgot.html' ,
     controller    : 'templateForgotCtrl'
   })
-  .state('albums', {
-    url           : '/albums' ,
-    templateUrl   : 'html/albums.html' ,
-    controller    : 'albumsCtrl'
+  .state('upload', {
+    url           : '/upload' ,
+    templateUrl   : 'html/upload.html' ,
+    controller    : 'uploadCtrl'
   })
-  .state('images', {
-    url           : '/images' ,
-    templateUrl   : 'html/images.html' ,
-    controller    : 'imagesCtrl'
-  })
+  .state('ddg', {
+    url           : '/ddg' ,
+    templateUrl   : 'html/ddg.html' ,
+    controller    : 'ddgCtrl'
+  });
   // .state('< name >', {
   //   url           : '< / >' ,
   //   templateUrl   : '< / >' ,
