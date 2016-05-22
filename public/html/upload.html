@@ -1,41 +1,47 @@
 <div class="container-fluid" ng-controller='uploadCtrl'>
-  <div class="form-group">
-    <div class="col-xs-6 col-xs-offset-3">
-      <h1>S3</h1>
-      <div class="">
-        <h4>Upload</h4>
-
-        <form ng-submit='uploadFile()'>
-          <fieldset class="form-group">
-            <button ng-model='uploadMe' type="file" name='newFile'
-            ngf-select   ngf-pattern="'*'" ngf-accept="'*'" ngf-max-size="100MB">Choose File</button>
-          </fieldset>
-          <button class="btn btn-primary">Upload</button>
-        </form>
-        <hr>
-        <h4>Download</h4>
-
-        <form ng-submit='retrieveFile()'>
-          <input ng-model='fileToRetrieve.key' class='form-control' type='text' placeholder="Type file name stored on Aws">
-          <br>
-          <button class='btn btn-lg btn-primary'>Get</button>
-        </form>
-
-        <div class="container">
-          Multiple File Upload
-          <form ng-submit="submitMultipleFiles()">
-            <button class="button" ngf-multiple="true" ngf-select ng-model="newFiles" name="newFiles" ngf-pattern="'*'"
-            ngf-accept="'*'">Select</button>
-            <button>Upload</button>
-          </form>
-        </div>
-
-        <hr>
-        <h4>Download Results</h4>
-        <pre>{{ fileReceived | json }}</pre>
-        <br>
-        <br>
-      </div>
+  <div class="col-xs-6 col-xs-offset-3">
+    <h1>S3</h1>
+    <hr>
+    <h4 class='pull-left'>Upload:</h4>
+    <div class="">
+      <!-- Upload Single File -->
+      <form ng-submit='uploadFile()' class='col-xs-4'>
+        <button ng-model='uploadMe' type="file" name='newFile'
+        ngf-select   ngf-pattern="'*'" ngf-accept="'*'" ngf-max-size="100MB" class='btn btn-primary'>Select A File</button>
+      </form>
+      <button class='btn btn-success'>UPLOAD</button>
+      <!-- Multiple File Uplaod -->
+      <form ng-submit="submitMultipleFiles()" class='col-xs-4'>
+        <button ngf-multiple="true" ngf-select ng-model="newFiles" name="newFiles" ngf-pattern="'*'"
+        ngf-accept="'*'" class='btn btn-primary'>Select Many Files</button>
+      </form>
     </div>
+    <hr>
+    <!-- Download Single File -->
+    <h4 class='pull-left'>Download:</h4>
+
+    <form ng-submit='retrieveFile()' class='col-xs-8'>
+      <input ng-model='fileToRetrieve.key' class='form-control' type='text' placeholder="Type file name stored on Aws">
+      <br>
+      <button class='btn btn-danger'>DOWNLOAD</button> &nbsp
+    </form>
+    <hr>
+    <!-- Download All Files -->
+    <div class="text-left">
+      <form ng-submit='getList()' class='col-xs-8'>
+        <input ng-model='que' class='form-control' type='text' placeholder="Type Bucket Name">
+        <br>
+        <button class='btn btn-danger'>DOWNLOAD ALL</button>
+      </form>
+    </div>
+
+    <div class="container">
+
+    </div>
+  </div>
+  <div class="col-xs-10 col-xs-offset-1">
+    <hr>
+    <h4 class='text-center'>Download Results</h4>
+    <pre>{{ fileReceived | json : spacing }}</pre>
   </div>
 </div>
