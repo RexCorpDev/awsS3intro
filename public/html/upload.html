@@ -20,9 +20,19 @@
           <br>
           <button class='btn btn-lg btn-primary'>Get</button>
         </form>
+
+        <div class="container">
+          Multiple File Upload
+          <form ng-submit="submitMultipleFiles()">
+            <button class="button" ngf-multiple="true" ngf-select ng-model="newFiles" name="newFiles" ngf-pattern="'*'"
+            ngf-accept="'*'">Select</button>
+            <button>Upload</button>
+          </form>
+        </div>
+
         <hr>
         <h4>Download Results</h4>
-        <pre>{{ fileReceived }}</pre>
+        <pre>{{ fileReceived | json }}</pre>
         <br>
         <br>
       </div>
